@@ -89,71 +89,51 @@
 
     <!---content------------------------------------------------------------------------>    
 
-    <style>
-      #right,
-      #wrong1,
-      #wrong2,
-      #wrong3 {
-        cursor: pointer;
-        padding: 0.5em;
-      }
-      #droppable {
-        border: 1px solid black;
-        width: 150px;
-        height: 200px;
-        float: left;
-        margin: 2%;
-        padding: 1em;
-      }
-    </style>
 
-    <div class="draggableSection my-5">
+    <style>
+      #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%;}
+      #sortable li { 
+        margin: 2% 0; 
+        padding: 2%;
+        font-size: 1.5rem; 
+        background: darkslategray;
+        color: white;
+        cursor: pointer;
+      }
+      </style>
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+      <script>
+      $( function() {
+        $( "#sortable" ).sortable();
+
+      });
+      </script>
+
+    <div class="sortableSection">
       <div class="container">
-        <div class="row text-center">
-          <h3 class="text-center mb-5">Please drag your answer and drop on box.</h3>
+        <div class="row">
           <div class="col"></div>
           <div class="col">
-            <div id="droppable">
-              <p>Are you programming Language ... ?</p>
-            </div>
-          </div>
-          <div class="col">
-            <div id="wrong1">
-              <p>HTML</p>
-            </div>
-            <div id="wrong2">
-              <p>CSS</p>
-            </div>
-            <div id="right">
-              <p>PHP</p>
-            </div>
-            <div id="wrong3">
-              <p>Bootstrap</p>
-            </div>
+            <ul id="sortable" class="text-center">
+              <li id="one">Item 1</li>
+              <li id="two">Item 2</li>
+              <li id="three">Item 3</li>
+              <li id="four">Item 4</li>
+              <li id="five">Item 5</li>
+              <li id="six">Item 6</li>
+              <li id="seven">Item 7</li>
+            </ul>
           </div>
           <div class="col"></div>
         </div>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
-    <script>
-      $(function () {
-        $("#wrong1, #wrong2, #wrong3").draggable({ revert: "invalid" });
-        $("#right").draggable({ revert: false });
-
-        $("#droppable").droppable({
-          accept: "#right",
-          drop: function (event, ui) {
-            $(this).find("p").html("Correct.").css("background-color","aqua");
-          },
-        });
-      });
-    </script>
 
     
+    <!---content------------------------------------------------------------------------>  
 
     <!-- hoverNavbar -->
     <script src="js/hoverNavbar.js"></script>

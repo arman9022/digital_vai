@@ -32,6 +32,13 @@
         color: blue !important;
         border-bottom: 2px solid blue;
       }
+      .filters button {
+        border-radius: 10%;
+      }
+      .filters button:hover {
+        background: green;
+        color: white;
+      }
     </style>
   </head>
   <body class="" style="background: rgb(235, 231, 231); font-family: 'Poppins', sans-serif">
@@ -88,59 +95,44 @@
     </header>
 
     <!---content------------------------------------------------------------------------>
-
-    <section class="serviceSection pt-5 my-5" id="service">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-xl-8">
-            <img class="img-fluid mb-4" src="images/850-940.jpg" alt="" />
-          </div>
-          <div class="col-xl-4">
-            <img class="img-fluid mb-4" src="images/430-475.jpg" alt="" />
-            <img class="img-fluid mb-4" src="images/430-475a.jpg" alt="" />
+   
+    <section class="filterSection my-5" id="filter">
+      <div class="container" data-js="hero-demo">
+        <div class="filters text-center">
+          <button data-filter="*">show all</button>
+          <button data-filter=".green">green</button>
+          <button data-filter=".red">red</button>
+          <button data-filter=".blue">blue</button>
+          <button data-filter=".dark">dark</button>
+        </div>
+        <div class="grid">
+          <div class="row text-center my-2">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item green">
+              <img class="img-fluid" src="images/service/1.jpg" alt="" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item red">
+              <img class="img-fluid" src="images/service/2.jpg" alt="" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item blue">
+              <img class="img-fluid" src="images/service/3.jpg" alt="" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item dark">
+              <img class="img-fluid" src="images/service/4.jpg" alt="" />
+            </div> <br><br><br><br>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item green">
+              <img class="img-fluid" src="images/service/1.jpg" alt="" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item red">
+              <img class="img-fluid" src="images/service/2.jpg" alt="" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item blue">
+              <img class="img-fluid" src="images/service/3.jpg" alt="" />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2 element-item dark">
+              <img class="img-fluid" src="images/service/4.jpg" alt="" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="softwareSection pt-5 my-5" id="software">
-      <div class="container">
-        <div class="row text-center my-2">
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/1.jpg" alt="" />
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/2.jpg" alt="" />
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/3.jpg" alt="" />
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/4.jpg" alt="" />
-          </div>
-        </div>
-        <div class="row text-center my-2">
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/5.jpg" alt="" />
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/6.jpg" alt="" />
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/7.jpg" alt="" />
-          </div>
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 p-2">
-            <img class="img-fluid" src="images/service/8.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="service1Section my-5">
-      <div class="container">
-
       </div>
     </section>
 
@@ -211,6 +203,13 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <!-- isotope -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+      window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');
+    </script>
+    <script src="js/isotope-docs.min.js?6"></script>
 
     <!-- hoverNavbar -->
     <script src="js/hoverNavbar.js"></script>
