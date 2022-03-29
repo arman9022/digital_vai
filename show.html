@@ -22,17 +22,6 @@
       rel="stylesheet"
     />
 
-    <style>
-      .headerSection ul li a {
-        border-bottom: 2px solid transparent;
-      }
-      .headerSection ul li a:hover {
-        color: blue !important;
-        border-bottom: 2px solid blue;
-      }
-    </style>
-
-
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
@@ -43,47 +32,22 @@
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
   
-  <script>
-  $( function() {
-    // run the currently selected effect
-    function runEffect() {
-      // get effect type from
-      var selectedEffect = $( "#effectTypes" ).val();
- 
-      // Most effect types need no options passed by default
-      var options = {};
-      // some effects have required parameters
-      if ( selectedEffect === "scale" ) {
-        options = { percent: 50 };
-      } else if ( selectedEffect === "size" ) {
-        options = { to: { width: 280, height: 185 } };
-      }
- 
-      // Run the effect
-      $( "#effect" ).show( selectedEffect, options, 500, callback );
-    };
- 
-    //callback function to bring a hidden box back
-    function callback() {
-      setTimeout(function() {
-        $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
-      }, 1000 );
-    };
- 
-    // Set effect from select menu value
-    $( "#button" ).on( "click", function() {
-      runEffect();
-    });
- 
-    $( "#effect" ).hide();
-  } );
-  </script>
+
 
 
   </head>
   <body class="" style="background: rgb(235, 231, 231); font-family: 'Poppins', sans-serif">
 
     <header class="headerSection pb-5 mb-5 bg-white">
+      <style>
+        .headerSection ul li a {
+          border-bottom: 2px solid transparent;
+        }
+        .headerSection ul li a:hover {
+          color: blue !important;
+          border-bottom: 2px solid blue;
+        }
+      </style>
       <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
           <div class="container">
@@ -109,6 +73,7 @@
                 <li class="nav-item"><a class="nav-link" href="about.html">Who We Are</a></li>
                 <li class="nav-item"><a class="nav-link" href="caseStudy.html">Case Study</a></li>
                 <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item dropdown">
@@ -136,7 +101,42 @@
 
     <!---content------------------------------------------------------------------------>    
 
-    <div class="showSection">
+    <div class="showSection my-5">
+      <script>
+        $( function() {
+          // run the currently selected effect
+          function runEffect() {
+            // get effect type from
+            var selectedEffect = $( "#effectTypes" ).val();
+       
+            // Most effect types need no options passed by default
+            var options = {};
+            // some effects have required parameters
+            if ( selectedEffect === "scale" ) {
+              options = { percent: 50 };
+            } else if ( selectedEffect === "size" ) {
+              options = { to: { width: 280, height: 185 } };
+            }
+       
+            // Run the effect
+            $( "#effect" ).show( selectedEffect, options, 500, callback );
+          };
+       
+          //callback function to bring a hidden box back
+          function callback() {
+            setTimeout(function() {
+              $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
+            }, 1000 );
+          };
+       
+          // Set effect from select menu value
+          $( "#button" ).on( "click", function() {
+            runEffect();
+          });
+       
+          $( "#effect" ).hide();
+        } );
+      </script>
       <div class="container">
         <div class="row">
           <div class="col"></div>

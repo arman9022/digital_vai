@@ -21,22 +21,20 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      .headerSection ul li a {
-        border-bottom: 2px solid transparent;
-      }
-      .headerSection ul li a:hover {
-        color: blue !important;
-        border-bottom: 2px solid blue;
-      }
-    </style>
-    
-    
+      
   </head>
   <body class="" style="background: rgb(235, 231, 231); font-family: 'Poppins', sans-serif">
 
     <header class="headerSection pb-5 mb-5 bg-white">
+      <style>
+        .headerSection ul li a {
+          border-bottom: 2px solid transparent;
+        }
+        .headerSection ul li a:hover {
+          color: blue !important;
+          border-bottom: 2px solid blue;
+        }
+      </style>
       <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
           <div class="container">
@@ -62,6 +60,7 @@
                 <li class="nav-item"><a class="nav-link" href="about.html">Who We Are</a></li>
                 <li class="nav-item"><a class="nav-link" href="caseStudy.html">Case Study</a></li>
                 <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item dropdown">
@@ -90,49 +89,206 @@
     <!---content------------------------------------------------------------------------>    
 
 
-    <style>
-      #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%;}
-      #sortable li { 
-        margin: 2% 0; 
-        padding: 2%;
-        font-size: 1.5rem; 
-        background: darkslategray;
-        color: white;
-        cursor: pointer;
-      }
-      </style>
-      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-      <script>
-      $( function() {
-        $( "#sortable" ).sortable();
-
-      });
-      </script>
-
-    <div class="sortableSection">
-      <div class="container">
-        <div class="row">
-          <div class="col"></div>
-          <div class="col">
-            <ul id="sortable" class="text-center">
-              <li id="one">Item 1</li>
-              <li id="two">Item 2</li>
-              <li id="three">Item 3</li>
-              <li id="four">Item 4</li>
-              <li id="five">Item 5</li>
-              <li id="six">Item 6</li>
-              <li id="seven">Item 7</li>
-            </ul>
-          </div>
-          <div class="col"></div>
-        </div>
-      </div>
-    </div>
-
-
-
     
+
+
+    <section class="sortableSection">
+
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          background-color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          height: 100vh;
+          margin: 0;
+        }
+        
+        .draggable-list {
+          border: 2px solid gray;
+          padding: 0;
+          list-style-type: none;
+          font-size: 22px;
+          font-weight: bold;
+        }
+        
+        .draggable-list li {
+          background-color: white;
+          display: flex;
+          flex: 1;
+        }
+        
+        .draggable-list li:not(:last-of-type) {
+          border-bottom: 2px solid gray;
+        }
+        
+        .draggable-list .number {
+          background-color: rgb(189, 189, 189);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          height: 50px;
+          width: 50px;
+        }
+        
+        .draggable-list li.over .draggable {
+          background-color: yellow;
+        }
+        
+        .draggable-list .person-name {
+          margin: 0 20px 0 0;
+          padding: 5%;
+        }
+        
+        .draggable-list li.right .person-name {
+          color: green;
+        }
+        
+        .draggable-list li.wrong .person-name {
+          color: red;
+        }
+        
+        .draggable {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0;
+          flex: 1;
+        }
+        
+        </style>
+        
+        <section class="rearrangeSection text-center">
+          <ul class="draggable-list" id="draggable-list"></ul>
+            <button id="check">Check Order</button>
+        </section>
+        
+        <script>
+        const draggable_list = document.getElementById('draggable-list');
+        const check = document.getElementById('check');
+        
+        const richestPeople = [
+          'ONE',
+          'TWO',
+          'THREE',
+          'FOUR',
+          'FIVE'
+        ];
+        
+        // Store listitems
+        const listItems = [];
+        
+        let dragStartIndex;
+        
+        createList();
+        
+        // Insert list items into DOM
+        function createList() {
+          [...richestPeople]
+            .map(a => ({ value: a, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value)
+            .forEach((person, index) => {
+              const listItem = document.createElement('li');
+        
+              listItem.setAttribute('data-index', index);
+        
+              listItem.innerHTML = `
+                <span class="number">${index + 1}</span>
+                <div class="draggable" draggable="true">
+                  <p class="person-name">${person}</p>
+                  <i class="fas fa-grip-lines"></i>
+                </div>
+              `;
+        
+              listItems.push(listItem);
+        
+              draggable_list.appendChild(listItem);
+            });
+        
+          addEventListeners();
+        }
+        
+        function dragStart() {
+          // console.log('Event: ', 'dragstart');
+          dragStartIndex = +this.closest('li').getAttribute('data-index');
+        }
+        
+        function dragEnter() {
+          // console.log('Event: ', 'dragenter');
+          this.classList.add('over');
+        }
+        
+        function dragLeave() {
+          // console.log('Event: ', 'dragleave');
+          this.classList.remove('over');
+        }
+        
+        function dragOver(e) {
+          // console.log('Event: ', 'dragover');
+          e.preventDefault();
+        }
+        
+        function dragDrop() {
+          // console.log('Event: ', 'drop');
+          const dragEndIndex = +this.getAttribute('data-index');
+          swapItems(dragStartIndex, dragEndIndex);
+        
+          this.classList.remove('over');
+        }
+        
+        // Swap list items that are drag and drop
+        function swapItems(fromIndex, toIndex) {
+          const itemOne = listItems[fromIndex].querySelector('.draggable');
+          const itemTwo = listItems[toIndex].querySelector('.draggable');
+        
+          listItems[fromIndex].appendChild(itemTwo);
+          listItems[toIndex].appendChild(itemOne);
+        }
+        
+        // Check the order of list items
+        function checkOrder() {
+          listItems.forEach((listItem, index) => {
+            const personName = listItem.querySelector('.draggable').innerText.trim();
+        
+            if (personName !== richestPeople[index]) {
+              listItem.classList.add('wrong');
+            } else {
+              listItem.classList.remove('wrong');
+              listItem.classList.add('right');
+            }
+          });
+        }
+        
+        function addEventListeners() {
+          const draggables = document.querySelectorAll('.draggable');
+          const dragListItems = document.querySelectorAll('.draggable-list li');
+        
+          draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', dragStart);
+          });
+        
+          dragListItems.forEach(item => {
+            item.addEventListener('dragover', dragOver);
+            item.addEventListener('drop', dragDrop);
+            item.addEventListener('dragenter', dragEnter);
+            item.addEventListener('dragleave', dragLeave);
+          });
+        }
+        
+        check.addEventListener('click', checkOrder);
+        
+        </script> 
+
+    </section>
+
     <!---content------------------------------------------------------------------------>  
 
     <!-- hoverNavbar -->

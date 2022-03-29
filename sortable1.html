@@ -21,8 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    
-    
+      
   </head>
   <body class="" style="background: rgb(235, 231, 231); font-family: 'Poppins', sans-serif">
 
@@ -89,97 +88,53 @@
 
     <!---content------------------------------------------------------------------------>    
 
-    <section class="draggableSection my-5">
+
+    
+
+
+    <section class="sortableSection">
       <style>
-        #one,#two,#three,#four {cursor: pointer;padding: 0 3%;float: right;}
-        #oneBox,#twoBox,#threeBox,#fourBox,#one,#two,#three,#four{
-          border: 1px solid rgb(195, 195, 195);
-          width: 100%;
-          height: 6%;
-          float: left;
-          margin: 0 2%;
+        #sortable { list-style-type: none; margin: 0; padding: 0; width: 100%;}
+        #sortable li { 
+          margin: 2% 0; 
+          padding: 2%;
+          font-size: 1.5rem; 
+          background: darkslategray;
+          color: white;
+          cursor: pointer;
         }
-        #sel{
-          color:rgb(195, 195, 195);
-        }
-        #sel1{
-          text-align: center;
-        }
-      </style>
+        </style>
       <div class="container">
         <div class="row">
-          <h3 class="text-center mb-5">Please drag your answer and drop on box.</h3>
-          <div class="col-xl-4 col-lg-4 col-sm-3 col-md-4"></div>
-          <div class="col-xl-3 col-lg-3 col-sm-6 col-md-4">
-            <div id="oneBox" class="mb-3 bg-light">
-              <p id="sel">Drag & Drop Your Answer</p>
-            </div>
-            <div id="twoBox" class="mb-3 bg-light">
-              <p id="sel">Drag & Drop Your Answer</p>
-            </div>
-            <div id="threeBox" class="mb-3 bg-light">
-              <p id="sel">Drag & Drop Your Answer</p>
-            </div>
-            <div id="fourBox" class="mb-3 bg-light">
-              <p id="sel">Drag & Drop Your Answer</p>
-            </div>
-            <div id="two" class="mb-3">
-              <p id="sel1">Two</p>
-            </div>
-            <div id="three" class="mb-3">
-              <p id="sel1">Three</p>
-            </div>
-            <div id="one" class="mb-3">
-              <p id="sel1">One</p>
-            </div>
-            <div id="four" class="mb-3">
-              <p id="sel1">Four</p>
+          <div class="col"></div>
+          <div class="col">
+            <ul id="sortable" class="text-center">
+              <li id="one">Item 1</li>
+              <li id="two">Item 2</li>
+              <li id="three">Item 3</li>
+              <li id="four">Item 4</li>
+              <li id="five">Item 5</li>
+              <li id="six">Item 6</li>
+              <li id="seven">Item 7</li>
+            </ul>
+            <div class="text-center mt-4">
+              <button id="button" class="btn btn-primary fw-bold" style="width: 50%;">Submit</button>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-4 col-sm-3 col-md-4"></div>
+          <div class="col"></div>
         </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
       <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
       <script>
-        // $( "#button" ).on( "click", function() {
-        // });
-        $(function () {
-          $("#one, #two, #three, #four").draggable();
-          // $("#droppable").droppable({
-          //   accept: "#one",
-          //   drop: function (event, ui) {
-          //     $(this).find("p").html("&nbsp;").css( "background-color","aqua");
-          //   },
-          // });
-          $("#oneBox").droppable({
-            accept: "#one",
-            drop: function (event, ui) {
-              $(this).find("p").html("&nbsp;").css( "background-color","aqua");
-            },
-          });
-          $("#twoBox").droppable({
-            accept: "#two",
-            drop: function (event, ui) {
-              $(this).find("p").html("&nbsp;").css( "background-color","aqua");
-            },
-          });
-          $("#threeBox").droppable({
-            accept: "#three",
-            drop: function (event, ui) {
-              $(this).find("p").html("&nbsp;").css( "background-color","aqua");
-            },
-          });
-          $("#fourBox").droppable({
-            accept: "#four",
-            drop: function (event, ui) {
-              $(this).find("p").html("&nbsp;").css( "background-color","aqua");
-            },
-          });
-        });
+      $( function() {
+        $( "#sortable" ).sortable();
+
+      });
       </script>
     </section>
 
+    <!---content------------------------------------------------------------------------>  
 
     <!-- hoverNavbar -->
     <script src="js/hoverNavbar.js"></script>
